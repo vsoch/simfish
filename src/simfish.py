@@ -92,6 +92,7 @@ class Tank(object):
         return tally
 
     def remove_dead(self):
+        
         for coords, items in self._items.items():
             death_list = []
             for item in items:
@@ -183,7 +184,8 @@ class Tank(object):
         """ Iterate a single cycle of the items within the tank. Also
             provides random temperature variation.
         """
-        for coords, items in self._items.items():
+        fishies = self._items.copy()
+        for coords, items in fishies.items():
             for item in items:
                 item.turn(self)
         n = random.random()
